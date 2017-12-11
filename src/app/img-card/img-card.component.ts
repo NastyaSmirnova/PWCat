@@ -16,7 +16,7 @@ export class ImgCardComponent implements OnInit {
 
   private image: CatImage = {
     message: 'Progressive Web Cat',
-    api: 'http://thecatapi.com/api/images/get?format=src',
+    api: 'https://thecatapi.com/api/images/get?format=src',
     fontsize: 40
   };
 
