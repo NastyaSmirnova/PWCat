@@ -24,7 +24,7 @@ import { ImgCardComponent } from './img-card/img-card.component';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
+    environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : []
   ],
   providers: [],
   bootstrap: [AppComponent]
