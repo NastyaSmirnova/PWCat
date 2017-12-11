@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { log } from 'util';
 
 class CatImage {
   message: string;
@@ -15,7 +16,7 @@ export class ImgCardComponent implements OnInit {
 
   private image: CatImage = {
     message: 'Progressive Web Cat',
-    api: 'https://cataas.com/cat/says/',
+    api: 'http://thecatapi.com/api/images/get?format=src',
     fontsize: 40
   };
 
@@ -28,9 +29,16 @@ export class ImgCardComponent implements OnInit {
   }
   
   public generateSrc(): void {
-    this.src = this.image.api + this.image.message + 
-      '?size=' + this.image.fontsize +
-      '&ts=' + Date.now();
-  }
+    fetch(this.image.api)
+      .then(response => {
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. ' + response.status);
+            return;
+          }
 
+          this.src = response.url;
+        }
+      )
+      .catch(err => console.log('Fetch Error :-S', err));
+  }
 }
