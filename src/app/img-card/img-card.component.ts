@@ -16,7 +16,7 @@ export class ImgCardComponent implements OnInit {
 
   private image: CatImage = {
     message: 'Progressive Web Cat',
-    api: 'https://thecatapi.com/api/images/get?format=src',
+    api: 'http://thecatapi.com/api/images/get?format=src',
     fontsize: 40
   };
 
@@ -36,7 +36,7 @@ export class ImgCardComponent implements OnInit {
             return;
           }
 
-          this.src = response.url;
+          this.src = response.url.replace('http://', 'https://');
         }
       )
       .catch(err => console.log('Fetch Error :-S', err));
