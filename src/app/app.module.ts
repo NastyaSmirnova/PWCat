@@ -21,7 +21,7 @@ import { ImgCardComponent } from './img-card/img-card.component';
   ],
   imports: [
     BrowserModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
+    environment.production ? ServiceWorkerModule.register('ngsw-worker.js') : [],
     MatToolbarModule,
     MatCardModule,
     MatButtonModule
