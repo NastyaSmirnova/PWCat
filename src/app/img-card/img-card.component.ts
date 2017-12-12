@@ -16,7 +16,8 @@ export class ImgCardComponent implements OnInit {
 
   private image: CatImage = {
     message: 'Progressive Web Cat',
-    api: 'https://thecatapi.com/api/images/get?format=src',
+    // api: 'https://thecatapi.com/api/images/get?format=src',
+    api: 'https://cataas.com/cat/says/',
     fontsize: 40
   };
 
@@ -29,16 +30,24 @@ export class ImgCardComponent implements OnInit {
   }
   
   public generateSrc(): void {
-    fetch(this.image.api)
-      .then(response => {
-          if (response.status !== 200) {
-            console.log('Looks like there was a problem. ' + response.status);
-            return;
-          }
+    var url = this.image.api + this.image.message + 
+      '?size=' + this.image.fontsize +
+      '&ts=' + Date.now();
 
-          this.src = response.url + '&ts=' + Date.now();
-        }
-      )
-      .catch(err => console.log('Fetch Error :-S', err));
+    this.src = url;
+
+    // fetch(url)
+    //   .then(response => {
+    //       if (response.status !== 200) {
+    //         console.log('Looks like there was a problem. ' + response.status);
+    //         return;
+    //       }
+
+    //       console.log(response);
+
+    //       this.src = response.url
+    //     }
+    //   )
+    //   .catch(err => console.log('Fetch Error :-S', err));
   }
 }
