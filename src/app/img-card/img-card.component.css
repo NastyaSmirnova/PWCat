@@ -2,6 +2,7 @@
   width: 400px;
   box-sizing: border-box;
   margin: 2rem auto;
+  text-align: center;
 }
 .mat-card .mat-card-actions {
   padding-top: 0;
